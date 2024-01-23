@@ -16,8 +16,12 @@ body {
     }
 }
 
-.navbar-custom {
+.navbar-custom,  .dropdown-menu{
     background-color: #312F2F;
+}
+
+.dropdown-item{
+    color: #DE4D86;
 }
 
 .navbar-custom .navbar-brand,
@@ -58,7 +62,7 @@ body {
     border-color: #bf3c6c;
 }
 
-.modal-content {
+.modal-content{
     background-color: #312F2F; 
     color: #9C9990;
 }
