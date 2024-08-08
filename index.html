@@ -7,33 +7,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">     
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 2s forwards 0.5s;
+        }
+    </style>
 </head>
-<body>
-    <div class="cv-container">
-        <img src="pp.jpg" alt="Foto Profil" class="profile-pic">
-        <h1>Naufaldi Rahmatullah Dwihartantyo</h1>
-        <div class="content-wrapper">
-        <div class="left-side">
-            <p><strong>About Me:</strong> An Institut Teknologi Sepuluh Nopember university student majoring in Computer Engineering. Highly motivated to constantly improve myself as well as developing new skills. Passionate in video game development, cloud computing, and technology in general.</p>
-            <h4>Education:</h4>
-            <ul>
-                <li><strong>2020-now:</strong> S1 Teknik Komputer, Institut Teknologi Sepuluh Nopember</li>
-                <li><strong>2018-2020:</strong> SMA IPA, SMAN 1 Sidoarjo</li>
-            </ul>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden animate-fadeIn max-w-4xl w-full">
+        <div class="bg-gradient-to-r from-blue-500 to-teal-400 p-6">
+            <div class="flex items-center justify-center">
+                <img src="pp.jpg" alt="Foto Profil" class="w-40 h-40 rounded-full border-4 border-white shadow-lg">
+            </div>
+            <div class="text-center mt-4">
+                <h1 class="text-4xl font-bold text-white">Naufaldi Rahmatullah Dwihartantyo</h1>
+                <p class="text-white text-lg mt-2">Computer Engineering Student at Institut Teknologi Sepuluh Nopember</p>
+            </div>
         </div>
-        <div class="right-side">
-            <p><strong>Portfolio:</strong> <a href="portfolio/Robocamp-App/robocamp.html" target="_blank">Robocamp</a>, <a href="portfolio/BootstrapWeb/index.html" target="_blank">GameCompany</a></p>
-            <p><strong>Biodata:</strong> Birth: Sidoarjo, 14 December 2001 | Address: Keputih KTT 2, Surabaya</p>
-            <h4>Contact:</h4>
-            <ul>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/naufaldird/" target="_blank">Naufaldi Rahmatullah Dwihartantyo</a></li>
-                <li><strong>GitHub:</strong> <a href="https://www.github.com/nrd141/" target="_blank">nrd141</a></li>
-                <li><strong>Phone:</strong> +628563600067</li>
-                <li><strong>Email:</strong> c004bsy3411@bangkit.academy</li>
-            </ul>
+        <div class="p-8">
+            <div class="mt-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">About Me</h2>
+                <p class="text-gray-700 leading-relaxed">An Institut Teknologi Sepuluh Nopember university student majoring in Computer Engineering. Highly motivated to constantly improve myself and develop new skills. Passionate about video game development, cloud computing, and technology in general.</p>
+            </div>
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Education</h2>
+                <ul class="list-disc list-inside text-gray-700 leading-relaxed">
+                    <li><strong>2020-now:</strong> S1 Teknik Komputer, Institut Teknologi Sepuluh Nopember</li>
+                    <li><strong>2018-2020:</strong> SMA IPA, SMAN 1 Sidoarjo</li>
+                </ul>
+            </div>
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Portfolio</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    <a href="portfolio/Robocamp-App/robocamp.html" target="_blank" class="text-blue-500 hover:underline">Robocamp</a>, 
+                    <a href="portfolio/BootstrapWeb/index.html" target="_blank" class="text-blue-500 hover:underline">GameCompany</a>
+                </p>
+            </div>
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Biodata</h2>
+                <p class="text-gray-700 leading-relaxed">Birth: Sidoarjo, 14 December 2001 | Address: Keputih KTT 2, Surabaya</p>
+            </div>
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contact</h2>
+                <ul class="text-gray-700 leading-relaxed">
+                    <li class="mb-2"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/naufaldird/" target="_blank" class="text-blue-500 hover:underline">Naufaldi Rahmatullah Dwihartantyo</a></li>
+                    <li class="mb-2"><strong>GitHub:</strong> <a href="https://www.github.com/nrd141/" target="_blank" class="text-blue-500 hover:underline">nrd141</a></li>
+                    <li class="mb-2"><strong>Phone:</strong> +628563600067</li>
+                    <li class="mb-2"><strong>Email:</strong> <a href="mailto:c004bsy3411@bangkit.academy" class="text-blue-500 hover:underline">c004bsy3411@bangkit.academy</a></li>
+                    <li><strong>Address:</strong> Keputih KTT 2, Surabaya</li>
+                </ul>
+            </div>
         </div>
-        </div>
-    </div> 
+    </div>
 </body>
 </html>
