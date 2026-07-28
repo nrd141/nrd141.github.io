@@ -3,78 +3,748 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile App</title>
+    <title>Naufaldi Rahmatullah Dwihartantyo — Technical Consultant</title>
+    <meta name="description" content="Portfolio of Naufaldi Rahmatullah Dwihartantyo, Technical Consultant specializing in Microsoft Dynamics 365 Business Central.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">     
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #0a0e17;
+            --bg-alt: #0d1220;
+            --panel: #11172a;
+            --panel-border: rgba(201, 166, 89, 0.14);
+            --text: #e7e8ec;
+            --text-dim: #98a0b3;
+            --text-faint: #6b7284;
+            --gold: #c9a659;
+            --gold-soft: rgba(201, 166, 89, 0.35);
+            --line: rgba(231, 232, 236, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.65;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            margin: 0;
+            color: #f5f3ee;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #e3c688;
+        }
+
+        .wrap {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ---------- Nav ---------- */
+        header.nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 14, 23, 0.82);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 18px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #f5f3ee;
+        }
+
+        .brand span {
+            color: var(--gold);
+        }
+
+        nav.links {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav.links a {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        nav.links a:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 640px) {
+            nav.links {
+                display: none;
             }
         }
-        .animate-fadeIn {
-            animation: fadeIn 2s forwards 0.5s;
+
+        /* ---------- Hero ---------- */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 96px 0 84px;
+            isolation: isolate;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.55;
+        }
+
+        .hero-veil {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse 60% 55% at 50% 20%, rgba(10, 14, 23, 0.25), rgba(10, 14, 23, 0.92) 72%),
+                linear-gradient(180deg, rgba(10, 14, 23, 0.35) 0%, var(--bg) 100%);
+        }
+
+        .hero-inner {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--gold-soft);
+            box-shadow: 0 0 0 6px rgba(10, 14, 23, 0.6), 0 20px 50px rgba(0, 0, 0, 0.5);
+            margin-bottom: 28px;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.1rem, 5vw, 3.1rem);
+            line-height: 1.15;
+        }
+
+        .hero .role {
+            margin-top: 14px;
+            color: var(--text-dim);
+            font-size: 1.02rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero .meta {
+            margin-top: 22px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            color: var(--text-faint);
+            font-size: 0.85rem;
+        }
+
+        .hero .meta span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .hero-cta {
+            margin-top: 34px;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 26px;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #14110a;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #e3c688;
+            color: #14110a;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--panel-border);
+            color: var(--text-dim);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold-soft);
+            color: var(--gold);
+        }
+
+        /* ---------- Sections ---------- */
+        main {
+            padding-bottom: 40px;
+        }
+
+        section.block {
+            padding: 60px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .block-head {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 34px;
+        }
+
+        .block-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+        }
+
+        .block-head h2 {
+            font-size: 1.7rem;
+        }
+
+        .lead {
+            color: var(--text-dim);
+            font-size: 1.02rem;
+            max-width: 66ch;
+        }
+
+        /* ---------- Cards / entries ---------- */
+        .entry {
+            position: relative;
+            padding: 24px 0 24px 28px;
+            border-left: 1px solid var(--line);
+        }
+
+        .entry::before {
+            content: "";
+            position: absolute;
+            left: -4.5px;
+            top: 30px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--gold);
+        }
+
+        .entry:first-child {
+            padding-top: 0;
+        }
+
+        .entry:first-child::before {
+            top: 6px;
+        }
+
+        .entry-title {
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: #f5f3ee;
+        }
+
+        .entry-org {
+            color: var(--gold);
+            font-size: 0.92rem;
+        }
+
+        .entry-period {
+            display: block;
+            margin-top: 4px;
+            color: var(--text-faint);
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .entry-desc {
+            margin-top: 10px;
+            color: var(--text-dim);
+            font-size: 0.93rem;
+        }
+
+        .sub-heading {
+            margin: 40px 0 18px;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+        }
+
+        /* ---------- Skills ---------- */
+        .skill-group {
+            margin-bottom: 26px;
+        }
+
+        .skill-group h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            border: 1px solid var(--panel-border);
+            padding: 7px 16px;
+            border-radius: 2px;
+            font-size: 0.83rem;
+            color: var(--text-dim);
+            background: var(--panel);
+        }
+
+        /* ---------- Portfolio ---------- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .proj-card {
+            display: block;
+            padding: 26px;
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 3px;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .proj-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold-soft);
+        }
+
+        .proj-card .proj-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #f5f3ee;
+            font-weight: 600;
+        }
+
+        .proj-card .proj-sub {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--text-faint);
+        }
+
+        .proj-card .proj-arrow {
+            margin-top: 18px;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        /* ---------- Contact ---------- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px 32px;
+        }
+
+        @media (max-width: 640px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .contact-item .label {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+        }
+
+        .contact-item .value {
+            font-size: 0.92rem;
+            color: var(--text);
+            text-align: right;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            position: relative;
+            padding: 70px 0 40px;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        footer .footer-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+        }
+
+        footer .footer-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.45;
+        }
+
+        footer .footer-veil {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(10, 14, 23, 0.75) 40%, rgba(10, 14, 23, 0.92) 100%);
+        }
+
+        footer .footer-inner {
+            text-align: center;
+        }
+
+        footer .footer-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #f5f3ee;
+        }
+
+        footer .footer-links {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+        }
+
+        footer .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        footer .copyright {
+            margin-top: 32px;
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            letter-spacing: 0.04em;
         }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden animate-fadeIn max-w-4xl w-full">
-        <div class="bg-gradient-to-r from-blue-500 to-teal-400 p-6">
-            <div class="flex items-center justify-center">
-                <img src="pp.jpg" alt="Foto Profil" class="w-40 h-40 rounded-full border-4 border-white shadow-lg">
+<body>
+
+    <header class="nav">
+        <div class="nav-inner">
+            <div class="brand">NRD<span>.</span></div>
+            <nav class="links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#work">Work</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"><img src="assets/low-poly-bg.svg" alt=""></div>
+        <div class="hero-veil"></div>
+        <div class="wrap hero-inner">
+            <img src="pp.jpg" alt="Naufaldi Rahmatullah Dwihartantyo" class="avatar">
+            <div class="eyebrow">Technical Consultant</div>
+            <h1>Naufaldi Rahmatullah Dwihartantyo</h1>
+            <p class="role">Microsoft Dynamics 365 Business Central &mdash; ERP Development &amp; Consulting</p>
+            <div class="meta">
+                <span>Surabaya, East Java, Indonesia</span>
+                <span>&middot;</span>
+                <span id="exp-years">2+ Years Experience</span>
             </div>
-            <div class="text-center mt-4">
-                <h1 class="text-4xl font-bold text-white">Naufaldi Rahmatullah Dwihartantyo</h1>
-                <p class="text-white text-lg mt-2">Technical Consultant | Dynamics 365 Developer | Software Engineer</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#work" class="btn btn-outline">View Work</a>
             </div>
         </div>
-        <div class="p-8">
-            <div class="mt-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">About Me</h2>
-                <p class="text-gray-700 leading-relaxed">A Computer Engineering graduate currently working as a Technical Consultant specializing in Dynamics 365 Business Central. Highly motivated to constantly improve myself and develop new skills. Passionate about software development, cloud computing, and technology in general.</p>
+    </section>
+
+    <main class="wrap">
+
+        <section id="about" class="block">
+            <div class="block-head">
+                <span class="block-num">01</span>
+                <h2>About</h2>
             </div>
-            <div class="mt-8">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Experience</h2>
-                <ul class="list-disc list-inside text-gray-700 leading-relaxed">
-                    <li><strong>2024-now:</strong> Technical Consultant, PT Wahana Ciptasinatria</li>
-                    <br>
-                    <span class="text-sm text-gray-600">Specializing in Microsoft Dynamics 365 Business Central. To date, I have been involved in two major projects, focusing on customizing reports and business processes to meet specific client needs.</span>
-                    <li><strong>Apr 2024:</strong> Data Science Course, Fresh Graduate Academy</li>
-                    <li><strong>Dec 2023:</strong> Cloud Computing Course, Bangkit Academy</li>
-                </ul>
+            <p class="lead">Technical Consultant with two years of experience specializing in Microsoft Dynamics 365 Business Central ERP. Worked across multiple projects involving custom report building, business process design, and on-premise to cloud migrations &mdash; skilled in Microsoft AL with a focus on practical ERP customizations and workflows.</p>
+        </section>
+
+        <section id="experience" class="block">
+            <div class="block-head">
+                <span class="block-num">02</span>
+                <h2>Experience</h2>
             </div>
-            <div class="mt-8">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Education</h2>
-                <ul class="list-disc list-inside text-gray-700 leading-relaxed">
-                    <li><strong>2020-now:</strong> S1 Computer Engineering, Institut Teknologi Sepuluh Nopember</li>
-                    <li><strong>2018-2020:</strong> SMA IPA, SMAN 1 Sidoarjo</li>
-                </ul>
+
+            <div class="entry">
+                <div class="entry-title">Technical Consultant</div>
+                <div class="entry-org">PT. Wahana Ciptasinatria</div>
+                <span class="entry-period">August 2024 &mdash; Present</span>
+                <p class="entry-desc">Provide technical consulting, development, and support for Microsoft Dynamics 365 Business Central systems. Proficient in AL and extensions development to customize ERP systems.</p>
             </div>
-            <div class="mt-8">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Portfolio</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    <a href="portfolio/Robocamp-App/robocamp.html" target="_blank" class="text-blue-500 hover:underline">Robocamp</a>, 
-                    <a href="portfolio/BootstrapWeb/index.html" target="_blank" class="text-blue-500 hover:underline">GameCompany</a>
-                </p>
+
+            <div class="sub-heading">Projects &mdash; Dynamics 365 Business Central</div>
+
+            <div class="entry">
+                <div class="entry-title">ERP Migration</div>
+                <div class="entry-org">PT. Toshiba Asia Pacific Indonesia &middot; Lead Technical Consultant</div>
+                <span class="entry-period">June 2026 &mdash; Present</span>
+                <p class="entry-desc">Leading the technical migration from legacy Dynamics NAV to Business Central cloud &mdash; managing data migrations, refactoring legacy C/AL code into modern AL extensions, and redesigning deprecated integrations across Sales &amp; Purchasing, Supply Chain, and Finance modules.</p>
             </div>
-            <div class="mt-8">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contact</h2>
-                <ul class="text-gray-700 leading-relaxed">
-                    <li class="mb-2"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/naufaldird/" target="_blank" class="text-blue-500 hover:underline">Naufaldi Rahmatullah Dwihartantyo</a></li>
-                    <li class="mb-2"><strong>GitHub:</strong> <a href="https://www.github.com/nrd141/" target="_blank" class="text-blue-500 hover:underline">nrd141</a></li>
-                    <li class="mb-2"><strong>Phone:</strong> +628563600067</li>
-                    <li class="mb-2"><strong>Email:</strong> <a href="mailto:c004bsy3411@bangkit.academy" class="text-blue-500 hover:underline">nrd141@gmail.com</a></li>
-                </ul>
+
+            <div class="entry">
+                <div class="entry-title">ERP Implementation and Support</div>
+                <div class="entry-org">PT. Hasil Fastindo &middot; Technical Consultant</div>
+                <span class="entry-period">February 2025 &mdash; Present</span>
+                <p class="entry-desc">Joined the project midway to build custom reports across Finance and Supply Chain modules. Traveled onsite for two weeks during go-live to resolve technical issues, and continues providing daily support and bug fixing.</p>
             </div>
+
+            <div class="entry">
+                <div class="entry-title">ERP Implementation</div>
+                <div class="entry-org">PT. Calvary Abadi &middot; Technical Consultant</div>
+                <span class="entry-period">May 2026 &mdash; Present</span>
+                <p class="entry-desc">Developing new financial and operational reports and customizing standard reports in Business Central, with ongoing support as business requirements evolve.</p>
+            </div>
+
+            <div class="entry">
+                <div class="entry-title">ERP Implementation</div>
+                <div class="entry-org">PT. Subur Buana Raya &middot; Technical Consultant</div>
+                <span class="entry-period">August 2024 &mdash; December 2025</span>
+                <p class="entry-desc">Involved in the development phase to build custom business processes and reports, focused on Finance and Supply Chain modules.</p>
+            </div>
+
+            <div class="entry">
+                <div class="entry-title">ERP Implementation</div>
+                <div class="entry-org">PT. YKK AP Indonesia &middot; Technical Consultant</div>
+                <span class="entry-period">June 2025 &mdash; August 2025</span>
+                <p class="entry-desc">Joined midway as backup support, working onsite at the client's factory for two months, customizing reports and fixing bugs on Manufacturing and Production modules.</p>
+            </div>
+
+            <div class="entry">
+                <div class="entry-title">ERP Support</div>
+                <div class="entry-org">PT. Lautindo Synergy Sejahtera &middot; Technical Consultant</div>
+                <span class="entry-period">April 2025 &mdash; July 2025</span>
+                <p class="entry-desc">Joined during the support phase to develop updates for the HR module, focused on absence tracking and payroll systems.</p>
+            </div>
+
+            <div class="sub-heading">Courses</div>
+
+            <div class="entry">
+                <div class="entry-title">Data Science Course</div>
+                <div class="entry-org">Fresh Graduate Academy</div>
+                <span class="entry-period">February 2024 &mdash; April 2024</span>
+                <p class="entry-desc">Three-month course covering SQL, data analysis and visualization, machine learning, and applied case studies.</p>
+            </div>
+
+            <div class="entry">
+                <div class="entry-title">Cloud Computing Learning Path</div>
+                <div class="entry-org">Bangkit Academy by Google, GoTo, Traveloka</div>
+                <span class="entry-period">August 2023 &mdash; December 2023</span>
+                <p class="entry-desc">Reached Top 50 for capstone project "Turtlify" as backend developer &mdash; built the REST API in Node.js, a Flask application for the machine learning model, and deployed to Google Cloud Platform.</p>
+            </div>
+        </section>
+
+        <section id="education" class="block">
+            <div class="block-head">
+                <span class="block-num">03</span>
+                <h2>Education</h2>
+            </div>
+            <div class="entry">
+                <div class="entry-title">Institut Teknologi Sepuluh Nopember</div>
+                <div class="entry-org">Computer Engineering &middot; GPA 3.40 / 4.00</div>
+                <span class="entry-period">Surabaya, East Java, Indonesia &mdash; Graduated 2024</span>
+                <p class="entry-desc">Specialized in Software and IoT development. Final project: an educational game for ship electrical handling built in Unreal Engine 5.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="block">
+            <div class="block-head">
+                <span class="block-num">04</span>
+                <h2>Skills</h2>
+            </div>
+
+            <div class="skill-group">
+                <h3>ERP &amp; Microsoft</h3>
+                <div class="chip-row">
+                    <span class="chip">AL</span>
+                    <span class="chip">C/AL</span>
+                    <span class="chip">Microsoft Azure</span>
+                    <span class="chip">Business Central Administration</span>
+                    <span class="chip">Environment Management</span>
+                    <span class="chip">SQL Server</span>
+                    <span class="chip">MySQL</span>
+                    <span class="chip">OData / REST API</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3>Additional</h3>
+                <div class="chip-row">
+                    <span class="chip">Python (Flask)</span>
+                    <span class="chip">C++</span>
+                    <span class="chip">JavaScript (Node.js)</span>
+                    <span class="chip">HTML5</span>
+                    <span class="chip">CSS3</span>
+                    <span class="chip">Bootstrap</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="block">
+            <div class="block-head">
+                <span class="block-num">05</span>
+                <h2>Selected Work</h2>
+            </div>
+            <div class="grid-2">
+                <a href="portfolio/Robocamp-App/robocamp.html" target="_blank" class="proj-card">
+                    <div class="proj-title">Robocamp</div>
+                    <div class="proj-sub">Interactive web application</div>
+                    <div class="proj-arrow">View Project &rarr;</div>
+                </a>
+                <a href="portfolio/BootstrapWeb/index.html" target="_blank" class="proj-card">
+                    <div class="proj-title">GameCompany</div>
+                    <div class="proj-sub">Bootstrap website</div>
+                    <div class="proj-arrow">View Project &rarr;</div>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="block">
+            <div class="block-head">
+                <span class="block-num">06</span>
+                <h2>Contact</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="label">Location</span>
+                    <span class="value">Surabaya, Indonesia</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Phone</span>
+                    <span class="value">+628563600067</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Email</span>
+                    <span class="value"><a href="mailto:nrd141@gmail.com">nrd141@gmail.com</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">LinkedIn</span>
+                    <span class="value"><a href="https://www.linkedin.com/in/naufaldird/" target="_blank">naufaldird</a></span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">GitHub</span>
+                    <span class="value"><a href="https://www.github.com/nrd141/" target="_blank">nrd141</a></span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-bg"><img src="assets/low-poly-footer.svg" alt=""></div>
+        <div class="footer-veil"></div>
+        <div class="wrap footer-inner">
+            <div class="footer-name">Naufaldi Rahmatullah Dwihartantyo</div>
+            <div class="footer-links">
+                <a href="mailto:nrd141@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/naufaldird/" target="_blank">LinkedIn</a>
+                <a href="https://www.github.com/nrd141/" target="_blank">GitHub</a>
+            </div>
+            <div class="copyright">&copy; <span id="year"></span> Naufaldi Rahmatullah Dwihartantyo. All rights reserved.</div>
         </div>
-    </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        (function () {
+            var start = new Date('2024-08-01');
+            var now = new Date();
+            var years = (now - start) / (1000 * 60 * 60 * 24 * 365.25);
+            var display = years >= 1 ? Math.floor(years) + '+ Years Experience' : 'Technical Consultant';
+            var el = document.getElementById('exp-years');
+            if (el) { el.textContent = display; }
+        })();
+    </script>
 </body>
 </html>
