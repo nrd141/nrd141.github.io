@@ -87,9 +87,13 @@ Dari review sebelumnya; kerjakan nanti bila diminta.
 - **Angka terukur di Experience:** tambahkan hasil kuantitatif (jumlah report, modul, user, waktu yang dihemat) di deskripsi pengalaman. Butuh data dari pemilik; jangan ditebak.
 - **Sertifikasi:** section atau chip khusus bila ada (mis. MB-800, AZ-900).
 - **Open Graph & Twitter card:** `og:title`, `og:description`, `og:image`, `twitter:card` supaya preview link di LinkedIn/WhatsApp tidak kosong.
-- **Favicon:** monogram "NRD." warna emas (`<link rel="icon">`).
 - **SEO tambahan:** JSON-LD `Person`, `canonical`, `robots.txt`, `sitemap.xml`.
-- **Optimalkan gambar:** `pp.jpg` ±296 KB; kompres/konversi ke WebP atau AVIF.
+- **Gambar lanjutan:** `pp.jpg` sudah dikecilkan (384px, ±20 KB); opsional konversi ke WebP/AVIF dan `<picture>`.
 - **README subproject:** isi README Robocamp-App (ganti judul "Roboverse-App") dan BootstrapWeb dengan screenshot, tech stack, dan tautan live.
 - **Link placeholder Robocamp:** rapikan `href="#"` (isi atau tandai sebagai demo).
-- **Lighthouse:** audit belum berhasil dijalankan (lihat catatan sesi); jalankan dan perbaiki sampai ≥ 90 di keempat kategori.
+
+## Hasil Lighthouse (lokal, 2026-11-24)
+
+Mobile: Performance 95, Accessibility 100, Best Practices 100, SEO 100. Desktop: 99/100/100/100.
+Perbaikan yang sudah dilakukan: foto profil dikecilkan, favicon SVG inline (monogram NRD), Google Fonts dimuat non-blocking (`media="print"` + `onload`, dengan `<noscript>` fallback).
+Sisa temuan kecil: minify CSS/JS (±4 KiB dan ±3 KiB) dan cache header, yang tidak bisa diatur di GitHub Pages. Jalankan ulang di `https://nrd141.github.io` setelah merge untuk angka sebenarnya.
